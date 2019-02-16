@@ -9,7 +9,7 @@ Fusion.pages.login = (function () {
                         <div class="account-wall">
                             <img src="/contents/images/download.png" class="profile-img"/>
 
-                            <form action="" method="post" class="form-signin">
+                            <form action="" method="post" class="form-signin" onsubmit="false">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" name="username" class="form-control" required="required"/>
@@ -32,11 +32,11 @@ Fusion.pages.login = (function () {
 
     return {
         content: template,
+        css: [],
+        js: [],
         initialize: function (container) {
             var content = Fusion.htmlToDOMElement(template)
-            var link = document.createElement("link")
-            link.href = ''
-            document.appendChild()
+            Fusion.addCSS('/contents/css/login.css')
             Fusion.pages.login.content = container.innerHTML = content.querySelector('body').innerHTML
         }
     }
