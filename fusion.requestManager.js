@@ -1,4 +1,4 @@
-Fusion.ajax = (function () {
+Fusion.requestManager = (function () {
     var eventQue = []
     
     return {
