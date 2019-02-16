@@ -1,6 +1,6 @@
 Fusion.requestManager = (function () {
     var eventQue = []
-    
+
     return {
         post: function (url, data, callback) {
             var url = url;
