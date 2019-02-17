@@ -9,7 +9,7 @@ Fusion.pages.login = (function () {
                         <div class="account-wall">
                             <img src="/contents/images/download.png" class="profile-img"/>
 
-                            <form action="" method="post" class="form-signin" onsubmit="false">
+                            <form action="/oauth/token" method="post" class="form-signin">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input type="text" name="username" class="form-control" required="required"/>
@@ -38,6 +38,20 @@ Fusion.pages.login = (function () {
             var content = Fusion.htmlToDOMElement(template)
             Fusion.addCSS('/contents/css/login.css')
             Fusion.pages.login.content = container.innerHTML = content.querySelector('body').innerHTML
+            form = container.querySelector('form')
+            Fusion.forms.submit(form, function (e) {
+                e.preventDefault()
+                var serializedForm = Fusion.forms.serialize(form)
+                form.action += `?grant_type=${serializedForm.grant_type}&username=${serializedForm.username}&password=${serializedForm.password}`
+                Fusion.requestManager.post(form, function (response) {
+                    console.log(response)
+                },
+                {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Basic bXktdHJ1c3RlZC1jbGllbnQ6c2VjcmV0'
+                });
+            })
         }
     }
 }())
