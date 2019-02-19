@@ -44,8 +44,13 @@ Fusion.pages.login = (function () {
                 var serializedForm = Fusion.forms.serialize(form)
                 form.action += `?grant_type=${serializedForm.grant_type}&username=${serializedForm.username}&password=${serializedForm.password}`
                 Fusion.requestManager.post(form, function (response) {
-                    console.log(response)
-                },
+                        Fusion.addJS('/contents/js/fusion/dashboard/fusion.pages.dashboard.js')
+                        console.log('dashboard page loaded')
+                        document.cookie = `token=${response.access_token}`
+                        setTimeout(function () {
+                            Fusion.pages.dashboard.initialize(document.getElementById('root'))
+                        }, 50)
+                    },
                 {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',

@@ -12,7 +12,12 @@ Fusion.requestManager = (function () {
                 headers: headers
             }).then(res => res.json())
                 .then(response => callback(response))
-                .catch(error => console.error('Error:', error));
+                .catch(error => {
+                    if (error.status == 404) {
+                        console.log('not found')
+                    }
+                    console.error('Error:', error)
+                });
         },
     }
 }())
