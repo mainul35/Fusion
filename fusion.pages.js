@@ -3,4 +3,4 @@ Fusion.pages = (function () {
         layout: [],
 
     }
-})
+}())

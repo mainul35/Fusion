@@ -1,15 +1,12 @@
 Fusion = (function () {
-    let contextPath = '/contents/js/fusion/'
     return {
+        contextPath: '/contents/js/fusion/',
         initialize: function() {
-            Fusion.addJS(`${contextPath}fusion.forms.js`)
-            Fusion.addJS(`${contextPath}fusion.navbar.js`)
-            Fusion.addJS(`${contextPath}fusion.pages.js`)
-            Fusion.addJS(`${contextPath}fusion.requestManager.js`)
-            Fusion.addJS(`${contextPath}fusion.routing.js`)
-            setTimeout(function () {
-                Fusion.pages.login.initialize(document.getElementById('root'))
-            }, 10)
+            Fusion.addJS(`${Fusion.contextPath}fusion.forms.js`)
+            Fusion.addJS(`${Fusion.contextPath}fusion.navbar.js`)
+            Fusion.addJS(`${Fusion.contextPath}fusion.pages.js`)
+            Fusion.addJS(`${Fusion.contextPath}fusion.requestManager.js`)
+            Fusion.addJS(`${Fusion.contextPath}fusion.routing.js`)
         },
         appBody: document.querySelector("#root"),
         htmlToDOMElement: function (htmlString) {

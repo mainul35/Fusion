@@ -6,7 +6,7 @@ Fusion.pages.dashboard = (function () {
             Fusion.addJS('/contents/js/fusion/fusion.navbar.js')
             setTimeout(function () {
                 Fusion.appBody.navbar.initialize(document.getElementById('header'))
-            }, 50)
+            }, 10)
             container.innerHTML = template
         }
     }

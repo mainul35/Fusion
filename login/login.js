@@ -1,4 +1,4 @@
-Fusion.pages.login = (function () {
+login = (function () {
     var template = `
     <link href="/contents/css/login.css" rel="stylesheet" type="text/css"/>
     <div class="align-content-center">
@@ -37,19 +37,19 @@ Fusion.pages.login = (function () {
         initialize: function (container) {
             var content = Fusion.htmlToDOMElement(template)
             Fusion.addCSS('/contents/css/login.css')
-            Fusion.pages.login.content = container.innerHTML = content.querySelector('body').innerHTML
+            login.content = container.innerHTML = content.querySelector('body').innerHTML
             form = container.querySelector('form')
             Fusion.forms.submit(form, function (e) {
                 e.preventDefault()
                 var serializedForm = Fusion.forms.serialize(form)
                 form.action += `?grant_type=${serializedForm.grant_type}&username=${serializedForm.username}&password=${serializedForm.password}`
                 Fusion.requestManager.post(form, function (response) {
-                        Fusion.addJS('/contents/js/fusion/dashboard/fusion.pages.dashboard.js')
+                        Fusion.addJS('/contents/js/fusion/dashboard/dashboard.js')
                         console.log('dashboard page loaded')
                         document.cookie = `token=${response.access_token}`
                         setTimeout(function () {
-                            Fusion.pages.dashboard.initialize(document.getElementById('root'))
-                        }, 50)
+                            dashboard.initialize(document.getElementById('root'))
+                        }, 10)
                     },
                 {
                     'Content-Type': 'application/json',
