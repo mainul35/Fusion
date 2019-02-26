@@ -1,4 +1,4 @@
-Fusion.pages.dashboard = (function () {
+dashboard = (function () {
     var template = ``
     return {
         content: template,

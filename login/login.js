@@ -49,7 +49,7 @@ login = (function () {
                         document.cookie = `token=${response.access_token}`
                         setTimeout(function () {
                             dashboard.initialize(document.getElementById('root'))
-                        }, 10)
+                        }, 50)
                     },
                 {
                     'Content-Type': 'application/json',

@@ -57,7 +57,7 @@ Fusion.appBody.navbar = (function () {
                 element += Fusion.appBody.navbar.nav.buildItem(item)
             })
             navContent.querySelector(".navbar-nav").innerHTML = element
-            Fusion.pages.login.content = container.innerHTML = navContent.querySelector('body').innerHTML
+            container.innerHTML = navContent.querySelector('body').innerHTML
         },
         nav: {
             addItem: function (item) {
