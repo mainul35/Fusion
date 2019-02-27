@@ -7,6 +7,10 @@ Fusion = (function () {
             Fusion.addJS(`${Fusion.contextPath}fusion.pages.js`)
             Fusion.addJS(`${Fusion.contextPath}fusion.requestManager.js`)
             Fusion.addJS(`${Fusion.contextPath}fusion.routing.js`)
+
+            window.onbeforeunload = function (e) {
+                return false
+            }
         },
         appBody: document.querySelector("#root"),
         htmlToDOMElement: function (htmlString) {

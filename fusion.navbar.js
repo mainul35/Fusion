@@ -44,11 +44,11 @@ Fusion.appBody.navbar = (function () {
             items = [
                 {
                     label: "Home",
-                    href: "#"
+                    href: "/home"
                 },
                 {
                     label: "Link",
-                    href: "#"
+                    href: "/login"
                 },
             ]
 
