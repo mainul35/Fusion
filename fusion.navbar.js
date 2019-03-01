@@ -1,4 +1,4 @@
-Fusion.appBody.navbar = (function () {
+Fusion.navbar = (function () {
 
     var items = []
     var template = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,10 +30,6 @@ Fusion.appBody.navbar = (function () {
                     <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
             </ul>
-            <!--<form class="form-inline my-2 my-lg-0">-->
-                <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-            <!--</form>-->
         </div>
     </nav>`
     return {
@@ -42,19 +38,11 @@ Fusion.appBody.navbar = (function () {
             var navContent = Fusion.htmlToDOMElement(template)
             navContent.querySelector(".navbar-nav").innerHTML = ''
             items = [
-                {
-                    label: "Home",
-                    href: "/home"
-                },
-                {
-                    label: "Link",
-                    href: "/login"
-                },
             ]
 
             var element = ''
             items.forEach(function (item) {
-                element += Fusion.appBody.navbar.nav.buildItem(item)
+                element += Fusion.navbar.nav.buildItem(item)
             })
             navContent.querySelector(".navbar-nav").innerHTML = element
             container.innerHTML = navContent.querySelector('body').innerHTML
@@ -63,12 +51,12 @@ Fusion.appBody.navbar = (function () {
             addItem: function (item) {
                 var navContent = document.querySelector(".navbar-nav")
                 items.push(item)
-                navContent.innerHTML += Fusion.appBody.navbar.nav.buildItem(item)
+                navContent.innerHTML += Fusion.navbar.nav.buildItem(item)
             },
             buildItem: function (item) {
                 var element = ''
                 element += '<li class="nav-item">'
-                element += `<a class="nav-link" href="${item.href}">${item.label}</a>`
+                element += `<route onmouseout="this.style.cursor='default'" onmouseover="this.style.cursor='pointer'" class="nav-link" path="${item.path}">${item.label}</route>`
                 element += '</li>'
                 return element
             }
