@@ -1,0 +1,78 @@
+.right-panel {
+    display: table-cell;
+    padding-left: 0 !important;
+    -webkit-transition: all .35s ease;
+    -moz-transition: all .35s ease;
+    -ms-transition: all .35s ease;
+    -o-transition: all .35s ease;
+    transition: all .35s ease;
+}
+
+.right-panel .breadcrumbs {
+    background-color: #fff;
+    display: inline-block;
+    margin-top: 0;
+    padding: 0 5px;
+    width: 100%;
+}
+
+.breadcrumbs {
+    margin-top: 0;
+}
+
+.content {
+    float: left;
+    padding: 0 20px;
+    width: 100%;
+}
+
+@media (max-width: 1368px) {
+    .content {
+    padding: 0 15px;
+    }
+}
+
+.right-panel .breadcrumbs {
+    padding: 10px 15px; }
+.right-panel .breadcrumbs div[class*="col"] {
+    padding: 0; }
+.right-panel .breadcrumbs .page-header {
+    min-height: inherit;
+    padding: 0; }
+.right-panel .breadcrumbs .page-header h1 {
+    padding: 5px 0; }
+.right-panel .breadcrumbs .page-header.float-right {
+    float: left;
+    text-align: left;
+    width: 100%; }
+.right-panel .breadcrumbs .page-header.float-right .breadcrumb {
+    padding: 0; }
+.right-panel .content {
+    padding: 0 10px; }
+.right-panel .content .card .card-title {
+    margin-bottom: 0; }
+.right-panel .content .card .card-footer {
+    padding: 15px 5px; }
+.right-panel .content .card .card-footer ul {
+    margin: 0; }
+.right-panel .content .card .card-footer ul li {
+    float: left;
+    margin: 5px 0;
+    padding: 0 10px;
+    width: 33.33%; }
+.right-panel .content div[class*="col"] {
+    padding: 0; }
+.right-panel .content .row div[class*="col"] {
+    padding: 0 10px; }
+.right-panel .content .nav-tabs .nav-link,
+.right-panel .content .nav-pills .nav-link {
+    padding: .5rem; }
+.right-panel .content .tab-content.pl-3 {
+    padding-left: 0 !important; }
+.right-panel .content #bootstrap-data-table_wrapper {
+    font-size: 14px;
+    padding: 0; }
+.right-panel .content #bootstrap-data-table_wrapper div[class*="col"] {
+    padding: 0; }
+.right-panel .content #bootstrap-data-table_wrapper .table td, .right-panel .content #bootstrap-data-table_wrapper .table th {
+    padding: 5px; }
