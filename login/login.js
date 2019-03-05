@@ -32,11 +32,13 @@ login = (function () {
 
     return {
         content: template,
-        css: [],
+        css: ['/contents/css/login.css'],
         js: [],
         initialize: function (container) {
             var content = Fusion.htmlToDOMElement(template)
-            Fusion.addCSS('/contents/css/login.css')
+            login.css.forEach(function (e) {
+                Fusion.addCSS(e)
+            })
             login.content = container.innerHTML = content.querySelector('body').innerHTML
             form = container.querySelector('form')
             Fusion.forms.submit(form, function (e) {
