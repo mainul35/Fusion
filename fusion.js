@@ -1,16 +1,17 @@
 Fusion = (function () {
     return {
-        contextPath: '/contents/js/fusion/',
+        contextPath: '/contents/js/',
+        routing: {},
         initialize: function() {
-            Fusion.addJS(`${Fusion.contextPath}fusion.forms.js`)
-            Fusion.addJS(`${Fusion.contextPath}fusion.navbar.js`)
-            Fusion.addJS(`${Fusion.contextPath}fusion.pages.js`)
-            Fusion.addJS(`${Fusion.contextPath}fusion.requestManager.js`)
-            Fusion.addJS(`${Fusion.contextPath}fusion.routing.js`)
+            Fusion.addJS(`lib/fusion/fusion.forms.js`)
+            Fusion.addJS(`lib/fusion/fusion.navbar.js`)
+            Fusion.addJS(`lib/fusion/fusion.pages.js`)
+            Fusion.addJS(`lib/fusion/fusion.requestManager.js`)
+            Fusion.addJS(`lib/fusion/fusion.routing.js`)
 
-            window.onbeforeunload = function (e) {
-                return false
-            }
+            // window.onbeforeunload = function (e) {
+            //     return false
+            // }
         },
         appBody: document.querySelector("#root"),
         htmlToDOMElement: function (htmlString) {
@@ -18,7 +19,7 @@ Fusion = (function () {
         },
         addCSS: function (cssURL) {
             var link = document.createElement("link")
-            link.href = cssURL
+            link.href = Fusion.contextPath + cssURL
             link.type = "text/css";
             link.rel = "stylesheet";
             document.head.appendChild( link )
@@ -29,7 +30,7 @@ Fusion = (function () {
                 //TODO
                 console.log('loading js: ' + jsURL)
             };
-            script.src = jsURL;
+            script.src = Fusion.contextPath + jsURL;
             document.head.appendChild(script);
         }
     };

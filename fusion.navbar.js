@@ -37,8 +37,7 @@ Fusion.navbar = (function () {
         initialize: function (container) {
             var navContent = Fusion.htmlToDOMElement(template)
             navContent.querySelector(".navbar-nav").innerHTML = ''
-            items = [
-            ]
+            items = []
 
             var element = ''
             items.forEach(function (item) {
