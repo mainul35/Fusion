@@ -10,14 +10,15 @@ Fusion.routing = (function () {
                 routeTags[i].addEventListener("click", function (e) {
                     e.preventDefault()
                     let path = this.getAttribute('path')
-                    routes.forEach(function (r) {
-                        if (r.route.path === path) {
-                            r.content.initialize(document.getElementById("root"))
-                            history.pushState(r.route.id, r.route.title ? r.route.title : r.route.id, r.route.path)
+                    for (var i = 0; i < routes.length; i++) {
+                        if (routes[i].route.path === path) {
+                            routes[i].content.initialize(document.getElementById("root"))
+                            history.pushState(routes[i].route.id, routes[i].route.title ? routes[i].route.title : routes[i].route.id, routes[i].route.path)
+                            break
                         } else {
                             console.log('Path did not match...')
                         }
-                    })
+                    }
                 })
             }
             // window.addEventListener('popstate', function (event) {

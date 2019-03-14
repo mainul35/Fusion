@@ -22,7 +22,19 @@ Fusion = (function () {
             link.href = Fusion.contextPath + cssURL
             link.type = "text/css";
             link.rel = "stylesheet";
-            document.head.appendChild( link )
+            var cssList = document.head.getElementsByTagName('link')
+            var found = false
+            for (var i = 0; i<cssList.length; i++) {
+                if (cssList[i].href === link.href) {
+                    found = true
+                    break
+                } else {
+                    found = false
+                }
+            }
+            if (!found) {
+                document.head.appendChild( link )
+            }
         },
         addJS: function (jsURL) {
             var script = document.createElement('script');
@@ -31,7 +43,20 @@ Fusion = (function () {
                 console.log('loading js: ' + jsURL)
             };
             script.src = Fusion.contextPath + jsURL;
-            document.head.appendChild(script);
+
+            var jsList = document.head.getElementsByTagName('script')
+            var found = false
+            for (var i = 0; i<jsList.length; i++) {
+                if (jsList[i].src === script.src ) {
+                    found = true
+                    break
+                } else {
+                    found = false
+                }
+            }
+            if (!found) {
+                document.head.appendChild(script);
+            }
         }
     };
 }())
