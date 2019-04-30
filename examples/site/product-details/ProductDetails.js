@@ -85,7 +85,7 @@ var ProductDetails = (function () {
 `
     return {
         initialize: function (panel, data) {
-            var elem = App.htmlToDOMElement(detailsTemplate)
+            var elem = Fusion.htmlToDOMElement(detailsTemplate)
             elem.querySelector(".img-thumb").setAttribute("src", `/image?imgId=${data.photo.id}&size=100`)
             elem.querySelector(".product-price").innerText = "$ " + data.originalPrice
             elem.querySelector(".product-isbn").innerText = data.isbn
@@ -94,8 +94,8 @@ var ProductDetails = (function () {
             elem.querySelector(".btn-add-to-cart").addEventListener("click", function (e) {
                 console.log("Adding to cart")
             })
-            panel.innerHTML = App.domEmelentToHTML(elem)
-            var validator = new App.Validator()
+            panel.innerHTML = Fusion.domEmelentToHTML(elem)
+            var validator = new Fusion.Validator()
             validator.initialize(panel.querySelector("form.add-to-cart-form"))
         }
     }

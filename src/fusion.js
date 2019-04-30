@@ -15,19 +15,19 @@ App = {
     addClass: function (element, className) {
         if (element.classList)
             element.classList.add(className)
-        else if (!App.hasClass(element, className)) element.className += " " + className
+        else if (!Fusion.hasClass(element, className)) element.className += " " + className
     },
     removeClass: function (element, className) {
         if (element.classList)
             element.classList.remove(className)
-        else if (App.hasClass(element, className)) {
+        else if (Fusion.hasClass(element, className)) {
             var reg = new RegExp('(\\s|^)' + className + '(\\s|$)')
             element.className = element.className.replace(reg, ' ')
         }
     },
     addCSS: function (cssURL) {
         var link = document.createElement("link")
-        link.href = App.contextPath + cssURL
+        link.href = Fusion.contextPath + cssURL
         link.type = "text/css";
         link.rel = "stylesheet";
         var cssList = document.head.getElementsByTagName('link')
@@ -59,7 +59,7 @@ App = {
             //TODO
             console.log('loading js: ' + jsURL)
         };
-        script.src = App.contextPath + jsURL;
+        script.src = Fusion.contextPath + jsURL;
 
         var jsList = document.head.getElementsByTagName('script')
         var found = false
@@ -82,7 +82,7 @@ App = {
                 var src = item.src
                 item.parentNode.removeChild(item);
                 setTimeout(function () {
-                    var fileName = App.addJS(src)
+                    var fileName = Fusion.addJS(src)
                     setTimeout(function () {
                         if (window[fileName]!== undefined)
                             window[fileName].initialize(window.document.querySelector(".content-pane"))
@@ -93,8 +93,8 @@ App = {
     },
     
     reloadResources: function (document) {
-        var elem = App.htmlToDOMElement(document)
+        var elem = Fusion.htmlToDOMElement(document)
         var jsList = elem.getElementsByTagName("script")
-        App.reloadJsInContent(jsList)
+        Fusion.reloadJsInContent(jsList)
     }
 }

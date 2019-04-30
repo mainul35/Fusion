@@ -1,9 +1,9 @@
-App.RequestManager = (function () {
+Fusion.RequestManager = (function () {
     return {
         loadContent: function (container, path, event = null) {
             container.onload = function () {
                 $.get( path, function( data ) {
-                    App.RequestManager.loader.removeLoading(container);
+                    Fusion.RequestManager.loader.removeLoading(container);
                     if (event === null) container.innerHTML = data
                     else event(container, data)
                 }).fail(function(data) {
@@ -14,7 +14,7 @@ App.RequestManager = (function () {
 
         loadContentAfterDomReady: function(container, path, event = null){
             $.get( path, function( data ) {
-                App.RequestManager.loader.removeLoading(container);
+                Fusion.RequestManager.loader.removeLoading(container);
                 if (event === null) container.innerHTML = data
                 else event(container, data)
             }).fail(function(data) {
@@ -30,12 +30,12 @@ App.RequestManager = (function () {
                     var contentPane  = document.querySelector('.content-pane')
                     if (path !== null) {
                         history.pushState(path, '', path);
-                        App.RequestManager.loader.addLoading(contentPane)
+                        Fusion.RequestManager.loader.addLoading(contentPane)
                         $.get( path, function( data ) {
-                            var elem = App.htmlToDOMElement(data)
+                            var elem = Fusion.htmlToDOMElement(data)
                             var jsList = elem.getElementsByTagName("script")
-                            App.reloadJsInContent(jsList)
-                            App.RequestManager.loader.removeLoading(contentPane)
+                            Fusion.reloadJsInContent(jsList)
+                            Fusion.RequestManager.loader.removeLoading(contentPane)
                             contentPane.innerHTML = data;
                         }).fail(function(data) {
                             contentPane.innerHTML = "<p>Failed to process your request.</p>";
@@ -46,8 +46,8 @@ App.RequestManager = (function () {
         },
         post: function (form, callback, headers = {}) {
             var url = form.getAttribute('action')
-            var data = App.Forms.serialize(form);
-            console.log(App.Forms.serialize(form))
+            var data = Fusion.Forms.serialize(form);
+            console.log(Fusion.Forms.serialize(form))
             fetch(url, {
                 method: 'POST', // or 'PUT'
                 body: data, // data can be `string` or {object}!

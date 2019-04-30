@@ -1,18 +1,18 @@
 var Form = (function (props) {
 
-    var formElement = App.htmlToDOMElement(`
+    var formElement = Fusion.htmlToDOMElement(`
         <form submit-to="${props.action ? props.action : ''} ${props.enableMultipart == true ? "enctype='multipart/form-data'" : ''}"></form>
     `)
 
     return {
         innerHtml: '',
         addField: function(element){
-            this.innerHtml += App.domEmelentToHTML(element)
+            this.innerHtml += Fusion.domEmelentToHTML(element)
             console.log(this.innerHtml)
             return this
         },
         addSubmitButton: function(element){
-            this.innerHtml += App.domEmelentToHTML(element)
+            this.innerHtml += Fusion.domEmelentToHTML(element)
             console.log(this.innerHtml)
             return this
         },
@@ -35,7 +35,7 @@ var Form = (function (props) {
  * @param props.disabled If the field is disabled
  * */
 var TextBox = (function (props) {
-    return App.htmlToDOMElement(`<div class="form-group">
+    return Fusion.htmlToDOMElement(`<div class="form-group">
         <label class="col-md-2 control-label" for="${props.id ? props.id : ''}">${props.title ? props.title : ''}</label>
         <div class="col-md-8">
             <input type="${props.type ? props.type : 'text'}" name="${props.name ? props.name : ''}" class="form-control ${props.class ? props.class : ''}" id="${props.id}"
@@ -56,7 +56,7 @@ var RadioGroup = (function (props) {
         }
         return template
     }
-    return App.htmlToDOMElement(`<div class="form-group">
+    return Fusion.htmlToDOMElement(`<div class="form-group">
                 <label class="col-md-2 control-label">${props.title ? props.title : ''}</label>
                 <div class="col-md-8"> ${ innerTemplate(props.items) } <span
                         class="help-block">${props.notification ? props.notification : ''}</span>
@@ -75,7 +75,7 @@ var CheckBoxGroup = (function (props) {
         }
         return template
     }
-    return App.htmlToDOMElement(`<div class="form-group">
+    return Fusion.htmlToDOMElement(`<div class="form-group">
                 <label class="col-md-2 control-label">${props.title ? props.title : ''}</label>
                 <div class="col-md-8">${ innerTemplate(props.items) }<span class="help-block">${props.notification ? props.notification : ''}</span>
                 </div>
@@ -92,7 +92,7 @@ var SelectFromOptions = (function (props) {
         }
         return template
     }
-    return App.htmlToDOMElement(`<div class="form-group">
+    return Fusion.htmlToDOMElement(`<div class="form-group">
                 <label class="col-md-2 control-label">${props.title ? props.title : ''}</label>
                 <div class="col-md-8"><select id = "${props.id ? props.id : ''}" name = "${props.name ? props.name : ''}"
                             class="form-control">${ innerTemplate(props) }</select><span class="help-block">${props.notification ? props.notification : ''}</span>
@@ -101,11 +101,11 @@ var SelectFromOptions = (function (props) {
 })
 
 var SubmitButton = (function (props) {
-    return App.htmlToDOMElement(`<button type="submit" class="btn ${props.class}" onsubmit="${props.action}">${props.value}</button>`)
+    return Fusion.htmlToDOMElement(`<button type="submit" class="btn ${props.class}" onsubmit="${props.action}">${props.value}</button>`)
 })
 
 var TextArea = (function (props) {
-    return App.htmlToDOMElement(`<div class="form-group">
+    return Fusion.htmlToDOMElement(`<div class="form-group">
                 <label class="col-md-2 control-label" for="description">${props.title ? props.title : ''}</label>
                 <div class="col-md-8">
 							<textarea name="${props.name ? props.name : ''}" rows="${props.rows ? props.rows : 5}" class="form-control"
@@ -117,7 +117,7 @@ var TextArea = (function (props) {
 })
 
 var FileField = (function (props) {
-    return App.htmlToDOMElement(`<div class="form-group">
+    return Fusion.htmlToDOMElement(`<div class="form-group">
                 <label class="col-md-2 control-label" for="${props.id ? props.id : ''}">${props.title ? props.title : ''}</label>
                 <div class="col-md-8">
                     <input id="${props.id ? props.id : ''}" type="file" name="${props.name ? props.name : ''}" accept="${props.accept ? props.accept : 'images/*'}"/>

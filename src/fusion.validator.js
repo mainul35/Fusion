@@ -6,7 +6,7 @@
  *
  * */
 
-App.Validator = function () {
+Fusion.Validator = function () {
     var requiredFields = []
     var lengthCheckerArray = []
     var valid = false

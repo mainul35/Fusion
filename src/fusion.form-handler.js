@@ -1,4 +1,4 @@
-App.FormHandler = (function () {
+Fusion.FormHandler = (function () {
     return {
         serialize: function (form) {
             const values = {};

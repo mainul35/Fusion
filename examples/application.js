@@ -3,16 +3,16 @@ application = (function () {
         initialize: function () {
             navbar.initialize();
             var contentPane = document.querySelector(".content-pane")
-            App.RequestManager.handleRouting();
+            Fusion.RequestManager.handleRouting();
             if (document.querySelector("requestPath") !== null) {
                 var path = document.querySelector("requestPath").getAttribute("path");
                 if (path) {
-                    App.RequestManager.loader.addLoading(contentPane);
-                    App.RequestManager.loadContent(document.querySelector("body"), path, function (container, data) {
+                    Fusion.RequestManager.loader.addLoading(contentPane);
+                    Fusion.RequestManager.loadContent(document.querySelector("body"), path, function (container, data) {
                         ontentPane = container.querySelector(".content-pane")
-                        var elem = App.htmlToDOMElement(data)
+                        var elem = Fusion.htmlToDOMElement(data)
                         var jsList = elem.getElementsByTagName("script")
-                        App.reloadJsInContent(jsList)
+                        Fusion.reloadJsInContent(jsList)
                         contentPane.innerHTML = data
                     });
                 }

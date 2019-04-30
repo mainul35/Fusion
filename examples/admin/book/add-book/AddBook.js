@@ -2,7 +2,7 @@ AddBook = (function () {
     var templateForm = ``
     return {
         initialize: function (panel) {
-            // App.RequestManager.addLoading(panel)
+            // Fusion.RequestManager.addLoading(panel)
             // var bookName = new TextBox({id: 'bookTitle', title: 'Title', name: 'title', required: true})
             // var author = new TextBox({id: 'author', title: 'Author', name: 'author', required: true})
             // var isbn = new TextBox({id: 'isbn', title: 'ISBN', name: 'isbn'})
@@ -34,7 +34,7 @@ AddBook = (function () {
             //     .addField(image)
             //     .addField(submitButton)
             //     .build()
-            // App.RequestManager.removeLoading(panel)
+            // Fusion.RequestManager.removeLoading(panel)
             // // panel.innerHTML = formTemplate
 
             $('#category').select2();
@@ -47,11 +47,11 @@ AddBook = (function () {
         }
     }
 }())
-// App.Forms.submit(form, function (e) {
+// Fusion.Forms.submit(form, function (e) {
 //     e.preventDefault()
 //     var serializedForm = Fusion.forms.serialize(form)
 //     form.action += `?grant_type=${serializedForm.grant_type}&username=${serializedForm.username}&password=${serializedForm.password}`
-//     App.RequestManager.post(form, function (response) {
+//     Fusion.RequestManager.post(form, function (response) {
 //             Fusion.addJS('src/dashboard/dashboard.js')
 //             console.log('dashboard page loaded')
 //             document.cookie = `token=${response.access_token}`

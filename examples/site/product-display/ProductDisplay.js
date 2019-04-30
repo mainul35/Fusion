@@ -56,13 +56,13 @@ var ProductDisplay = (function () {
     }
     return {
         initialize: function (panel) {
-            App.addCSS("app/src/site/product-details/ProductDetails.css")
-            App.addJS("app/src/site/product-details/ProductDetails.js")
-            App.RequestManager.loader.addLoading(panel)
-            App.RequestManager.loadContentAfterDomReady(panel, '/book/all', function (container, books) {
+            Fusion.addCSS("app/src/site/product-details/ProductDetails.css")
+            Fusion.addJS("app/src/site/product-details/ProductDetails.js")
+            Fusion.RequestManager.loader.addLoading(panel)
+            Fusion.RequestManager.loadContentAfterDomReady(panel, '/book/all', function (container, books) {
                 var tempTemplate = ""
                 books.forEach(function (book) {
-                    var element = App.htmlToDOMElement(itemTemplate)
+                    var element = Fusion.htmlToDOMElement(itemTemplate)
                     element.querySelector(".product-img").setAttribute("src", `/image?imgId=${book.photo.id}&size=240`)
                     element.querySelector(".product-template").setAttribute("id", "product-template"+book.id)
                     element.querySelector(".quick-view").setAttribute("product-id", book.id)
@@ -74,7 +74,7 @@ var ProductDisplay = (function () {
                     var priceElement = element.querySelector(".price")
                     priceElement.setAttribute("product-id", book.id)
                     priceElement.innerHTML = "$ "+book.originalPrice
-                    tempTemplate += App.domEmelentToHTML(element)
+                    tempTemplate += Fusion.domEmelentToHTML(element)
                 })
                 panel.innerHTML = tempTemplate
                 bindEvents(panel, books)
