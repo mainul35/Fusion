@@ -1,0 +1,11 @@
+{
+    "lib" : "./lib/",
+    "src": "./src/",
+    "scripts": {
+        "run": ""
+    },
+    "dependencies": [
+        "fusion-core:1.0.0",
+        "fusion-live-reload:1.0.0"
+    ]
+}
